@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВИДИКОН - г. Владимир</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ШАПКА С ЛОГОТИПОМ НА ВСЮ ШИРИНУ -->
+    <header>
+        <div class="header-logo-full">
+            <img src="images/logo.png" alt="Логотип ВИДИКОН" id="logo-full">
+        </div>
+        <div class="header-contacts">
+            <div class="container">
+                <a href="tel:+79040345715">+7 (904) 034-57-15</a>
+                <a href="mailto:zakaz@vidikon33.ru">zakaz@vidikon33.ru</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav>
+        <div class="container">
+            <a href="#about">О нас</a>
+            <a href="#products">Товары</a>
+            <a href="#order">Заказать</a>
+            <a href="#contacts">Контакты</a>
+            <a href="https://vk.com/vidikonsb" target="_blank">VK</a>
+        </div>
+    </nav>
+
+    <!-- БЛОК О КОМПАНИИ -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>О компании</h2>
+            <p>Компания <strong>ВИДИКОН</strong> — это не просто поставщик, а ваш стратегический партнёр в сфере безопасности, предлагающий полный комплекс услуг «под ключ»: от продажи ассортимента сертифицированного оборудования (включая многообразие мониторов и камер) до профессионального монтажа видеодомофонов в квартиры с точной привязкой к подъездной линии, а также проектирования и установки систем видеонаблюдения любой сложности для офисов, частных домов и производственных объектов, при этом мы всегда учитываем индивидуальные пожелания клиента, а для действующих сетей проводим детальный аудит, выявляем слабые места и модернизируем системы, чтобы гарантировать вам абсолютную надёжность, отличное качество изображения и полное спокойствие.</p>
+            <p><strong>Директор:</strong> Синицына Ольга</p>
+            <p><strong>Адрес:</strong> г. Владимир, ул. Электрозаводская, д. 7</p>
+        </div>
+    </section>
+
+    <!-- ТОВАРЫ -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2>Наши товары</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Товары будут загружены из JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ФОРМА ЗАКАЗА НА ГЛАВНОЙ СТРАНИЦЕ -->
+    <section id="order" class="section">
+        <div class="container">
+            <h2>Оформить заказ</h2>
+            <p style="text-align:center; margin-bottom:20px;">Вы можете заказать любой товар, заполнив форму ниже</p>
+            
+            <form action="https://formsubmit.co/zakaz@vidikon33.ru" method="POST">
+                <!-- Скрытые поля для FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="Новый заказ с сайта ВИДИКОН">
+                
+                <!-- Поле для названия товара (пользователь может указать) -->
+                <label for="product-name">Название товара</label>
+                <input type="text" id="product-name" name="Название товара" placeholder="Например: TN-MD710 W">
+
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" name="Имя" required>
+
+                <label for="phone">Телефон *</label>
+                <input type="tel" id="phone" name="Телефон" required>
+
+                <label for="address">Адрес доставки *</label>
+                <input type="text" id="address" name="Адрес доставки" required>
+
+                <label for="delivery">Способ доставки</label>
+                <select id="delivery" name="Способ доставки">
+                    <option value="СДЭК">СДЭК</option>
+                    <option value="Яндекс Доставка">Яндекс Доставка</option>
+                    <option value="Самовывоз">Самовывоз (г. Владимир, Электрозаводская, д. 7)</option>
+                </select>
+
+                <label for="comment">Дополнительный комментарий</label>
+                <textarea id="comment" name="Комментарий" rows="3" placeholder="Укажите удобное время доставки или другие пожелания"></textarea>
+
+                <button type="submit">Отправить заказ</button>
+            </form>
+            <div id="order-message"></div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ + КАРТА С АДРЕСОМ -->
+    <section id="contacts" class="section">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-row">
+                <div class="contacts-info">
+                    <p><strong>Телефон:</strong> <a href="tel:+79040345715">+7 (904) 034-57-15</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:zakaz@vidikon33.ru">zakaz@vidikon33.ru</a></p>
+                    <p><strong>Адрес:</strong> г. Владимир, ул. Электрозаводская, д. 7</p>
+                    <p><strong>VK:</strong> <a href="https://vk.com/vidikonsb" target="_blank">vk.com/vidikonsb</a></p>
+                </div>
+                <div class="map">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8c7c0b0e2b0f3e6d7a4b1c2d3e4f5a6b7c8d9e0f&source=constructor" width="100%" height="300" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК ПРО ДИРЕКТОРА -->
+    <section id="director" class="section">
+        <div class="container">
+            <h2>Директор компании</h2>
+            <div class="director-block">
+                <div class="director-photo">
+                    <img src="images/director.jpg" alt="Синицына Ольга" style="max-width:150px; border-radius:50%;">
+                </div>
+                <div class="director-info">
+                    <h3>Синицына Ольга</h3>
+                    <p>Генеральный директор ООО «ВИДИКОН»</p>
+                    <p>Связь с директором: <a href="mailto:zakaz@vidikon33.ru">zakaz@vidikon33.ru</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ВИДИКОН. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем данные о товарах и скрипты -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* ===== ШАПКА С ЛОГОТИПОМ НА ВСЮ ШИРИНУ ===== */
+header {
+    background: #ffffff;
+    color: white;
+}
+
+.header-logo-full {
+    width: 100%;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#logo-full {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.header-contacts {
+    background: #222;
+    padding: 10px 0;
+    border-top: 2px solid #444;
+    text-align: center;
+}
+
+.header-contacts a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.header-contacts a:hover {
+    color: #ffffff;
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+nav {
+    background: #333;
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 3px solid #555;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background: #555;
+    color: white;
+    border-radius: 5px;
+}
+
+/* ===== СЕКЦИИ ===== */
+.section {
+    background: white;
+    margin: 25px 0;
+    padding: 25px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #111;
+    border-bottom: 3px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ===== ТОВАРЫ ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-item {
+    background: #f8f8f8;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: #eee;
+}
+
+.product-item h3 {
+    margin: 12px 0 6px;
+    color: #111;
+    font-weight: 600;
+}
+
+.price {
+    color: #222;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* ===== ФОРМА ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+    color: #222;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fafafa;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #555;
+    outline: none;
+    background: white;
+}
+
+button {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: #444;
+}
+
+#order-message {
+    margin-top: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* ===== КОНТАКТЫ ===== */
+.contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contacts-info {
+    flex: 1;
+    min-width: 240px;
+}
+
+.contacts-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.contacts-info a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted #999;
+}
+
+.contacts-info a:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.map {
+    flex: 2;
+    min-width: 300px;
+}
+
+.map iframe {
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+/* ===== ДИРЕКТОР ===== */
+.director-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 6px solid #333;
+}
+
+.director-info h3 {
+    color: #111;
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.director-info a {
+    color: #222;
+    font-weight: bold;
+}
+
+.director-info a:hover {
+    color: #000;
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+    background: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 30px;
+    border-top: 3px solid #444;
+}
+
+footer p {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 700px) {
+    .header-contacts a {
+        display: inline-block;
+        margin: 5px 10px;
+        font-size: 15px;
+    }
+
+    .director-block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contacts-row {
+        flex-direction: column;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 4px 0;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    #logo-full {
+        max-height: 120px;
+    }
+}

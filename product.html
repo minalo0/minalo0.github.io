@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВИДИКОН - Карточка товара</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для карточки товара */
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 20px 0;
+        }
+
+        .product-detail-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-detail-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-detail-info h1 {
+            font-size: 32px;
+            color: #111;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-info .price-large {
+            font-size: 28px;
+            font-weight: bold;
+            color: #222;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 2px solid #ddd;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .product-detail-info .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .product-detail-info .characteristics {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .product-detail-info .characteristics li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+        }
+
+        .product-detail-info .characteristics li::before {
+            content: "▸ ";
+            color: #333;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .product-not-found {
+            text-align: center;
+            padding: 50px 0;
+            font-size: 20px;
+        }
+
+        .product-not-found a {
+            color: #222;
+            font-weight: bold;
+        }
+
+        .breadcrumb {
+            padding: 15px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стили для формы заказа внутри карточки */
+        .order-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #ddd;
+        }
+
+        .order-section h2 {
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+
+        .order-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .order-section label {
+            font-weight: bold;
+            color: #222;
+        }
+
+        .order-section input,
+        .order-section select,
+        .order-section textarea {
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #fafafa;
+            transition: border 0.3s;
+        }
+
+        .order-section input:focus,
+        .order-section select:focus,
+        .order-section textarea:focus {
+            border-color: #555;
+            outline: none;
+            background: white;
+        }
+
+        .order-section button {
+            background: #222;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .order-section button:hover {
+            background: #444;
+        }
+
+        #order-message-product {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 12px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .product-info-in-form {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #333;
+            margin-bottom: 10px;
+        }
+
+        .product-info-in-form p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 700px) {
+            .product-detail {
+                flex-direction: column;
+            }
+            .product-detail-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА -->
+    <header>
+        <div class="header-logo-full">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Логотип ВИДИКОН" id="logo-full">
+            </a>
+        </div>
+        <div class="header-contacts">
+            <div class="container">
+                <a href="tel:+79040345715">+7 (904) 034-57-15</a>
+                <a href="mailto:zakaz@vidikon33.ru">zakaz@vidikon33.ru</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav>
+        <div class="container">
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#products">Товары</a>
+            <a href="index.html#order">Заказать</a>
+            <a href="index.html#contacts">Контакты</a>
+            <a href="https://vk.com/vidikonsb" target="_blank">VK</a>
+        </div>
+    </nav>
+
+    <!-- КАРТОЧКА ТОВАРА -->
+    <section class="section">
+        <div class="container">
+            <!-- Хлебные крошки -->
+            <div class="breadcrumb">
+                <a href="index.html">Главная</a> / 
+                <a href="index.html#products">Товары</a> / 
+                <span id="product-name-breadcrumb">Товар</span>
+            </div>
+
+            <!-- Контейнер для карточки товара -->
+            <div id="product-detail-container">
+                <div class="product-detail">
+                    <div class="product-detail-image">
+                        <img id="product-image" src="" alt="Товар">
+                    </div>
+                    <div class="product-detail-info">
+                        <h1 id="product-name">Загрузка...</h1>
+                        <div class="price-large" id="product-price">Цена</div>
+                        <div class="description" id="product-description">Описание</div>
+                        <h3>Характеристики:</h3>
+                        <ul class="characteristics" id="product-characteristics">
+                            <li>Загрузка...</li>
+                        </ul>
+                        <a href="index.html#products" class="back-link">← Вернуться к списку товаров</a>
+                    </div>
+                </div>
+
+                <!-- ФОРМА ЗАКАЗА ВНУТРИ КАРТОЧКИ ТОВАРА (НИКУДА НЕ ОТПРАВЛЯЕТСЯ) -->
+                <div class="order-section" id="order-section">
+                    <h2>Заказать этот товар</h2>
+                    
+                    <!-- Информация о заказываемом товаре -->
+                    <div class="product-info-in-form" id="product-info-in-form">
+                        <p><strong>Товар:</strong> <span id="form-product-name">Загрузка...</span></p>
+                        <p><strong>Цена:</strong> <span id="form-product-price">Загрузка...</span></p>
+                        <p><strong>Артикул:</strong> <span id="form-product-id">Загрузка...</span></p>
+                    </div>
+
+                    <form id="order-form-product">
+                        <label for="name-product">Ваше имя *</label>
+                        <input type="text" id="name-product" required>
+
+                        <label for="phone-product">Телефон *</label>
+                        <input type="tel" id="phone-product" required>
+
+                        <label for="address-product">Адрес доставки *</label>
+                        <input type="text" id="address-product" required>
+
+                        <label for="delivery-product">Способ доставки</label>
+                        <select id="delivery-product">
+                            <option value="СДЭК">СДЭК</option>
+                            <option value="Яндекс Доставка">Яндекс Доставка</option>
+                            <option value="Самовывоз">Самовывоз (г. Владимир, Электрозаводская, д. 7)</option>
+                        </select>
+
+                        <label for="comment-product">Дополнительный комментарий</label>
+                        <textarea id="comment-product" rows="3" placeholder="Укажите удобное время доставки или другие пожелания"></textarea>
+
+                        <button type="submit">Заказать товар</button>
+                    </form>
+                    <div id="order-message-product"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ВИДИКОН. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем данные о товарах -->
+    <script src="products.js"></script>
+    <script>
+        // Получаем ID товара из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        // Находим товар по ID
+        const product = productsData.find(p => p.id === productId);
+
+        if (product) {
+            // Заполняем страницу данными
+            document.title = `ВИДИКОН - ${product.name}`;
+            document.getElementById('product-name-breadcrumb').textContent = product.name;
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('product-price').textContent = product.price;
+            document.getElementById('product-description').textContent = product.fullDesc || product.shortDesc;
+            document.getElementById('product-image').src = product.image;
+            document.getElementById('product-image').alt = product.name;
+
+            // Заполняем информацию о товаре в форме
+            const article = `VID-${String(product.id).padStart(4, '0')}`;
+            document.getElementById('form-product-name').textContent = product.name;
+            document.getElementById('form-product-price').textContent = product.price;
+            document.getElementById('form-product-id').textContent = article;
+
+            // Заполняем характеристики
+            const charList = document.getElementById('product-characteristics');
+            charList.innerHTML = '';
+            if (product.characteristics && product.characteristics.length > 0) {
+                product.characteristics.forEach(char => {
+                    const li = document.createElement('li');
+                    li.textContent = char;
+                    charList.appendChild(li);
+                });
+            } else {
+                charList.innerHTML = '<li>Характеристики не указаны</li>';
+            }
+
+            // ОБРАБОТКА ФОРМЫ ЗАКАЗА (НИКУДА НЕ ОТПРАВЛЯЕТСЯ)
+            document.getElementById('order-form-product').addEventListener('submit', function(e) {
+                // Отменяем отправку формы
+                e.preventDefault();
+
+                // Получаем данные из формы
+                const name = document.getElementById('name-product').value.trim();
+                const phone = document.getElementById('phone-product').value.trim();
+                const address = document.getElementById('address-product').value.trim();
+                const delivery = document.getElementById('delivery-product').value;
+                const comment = document.getElementById('comment-product').value.trim();
+
+                // Проверяем обязательные поля
+                if (!name || !phone || !address) {
+                    document.getElementById('order-message-product').innerHTML = 
+                        '<span style="color:#cc0000;">⚠️ Заполните все обязательные поля!</span>';
+                    return;
+                }
+
+                // Формируем сообщение с заказом (только для отображения на экране)
+                const message = `✅ ЗАКАЗ ОФОРМЛЕН!\n\n` +
+                    `📦 Товар: ${product.name}\n` +
+                    `💰 Цена: ${product.price}\n` +
+                    `🔢 Артикул: VID-${String(product.id).padStart(4, '0')}\n\n` +
+                    `👤 Имя: ${name}\n` +
+                    `📱 Телефон: ${phone}\n` +
+                    `📍 Адрес: ${address}\n` +
+                    `🚚 Доставка: ${delivery}\n` +
+                    `📝 Комментарий: ${comment || '—'}`;
+
+                // Показываем сообщение на экране
+                document.getElementById('order-message-product').innerHTML = 
+                    `<span style="color:green;">${message.replace(/\n/g, '<br>')}</span>`;
+                
+                // Очищаем форму
+                this.reset();
+                
+                // Прокручиваем к сообщению
+                document.getElementById('order-message-product').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            });
+
+        } else {
+            // Товар не найден
+            document.getElementById('product-detail-container').innerHTML = `
+                <div class="product-not-found">
+                    <h2>Товар не найден</h2>
+                    <p>К сожалению, запрошенный товар не существует.</p>
+                    <a href="index.html#products">Вернуться к списку товаров</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
